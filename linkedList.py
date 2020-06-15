@@ -7,17 +7,19 @@ The Linked List contains five functions
 "delete" : deletes the first element with the given value
 """
 
+
 class Element(object):
-    
+
     def __init__(self, value):
         self.value = value
         self.next = None
-        
+
+
 class LinkedList(object):
-    
-    def __init__(self, head = None):
+
+    def __init__(self, head=None):
         self.head = head
-        
+
     def append(self, newElement):
         current = self.head
         if self.head:
@@ -26,7 +28,7 @@ class LinkedList(object):
             current.next = newElement
         else:
             self.head = newElement
-            
+
     def getPosition(self, position):
         current = self.head
         counter = 1
@@ -37,8 +39,8 @@ class LinkedList(object):
                 return current
             current = current.next
             counter += 1
-        #return None
-    
+        # return None
+
     def insert(self, newElement, position):
         current = self.head
         counter = 1
@@ -52,7 +54,7 @@ class LinkedList(object):
                     current.next = newElement
                 current = current.next
                 counter += 1
-    
+
     def delete(self, value):
         current = self.head
         previous = None
@@ -63,14 +65,16 @@ class LinkedList(object):
             previous.next = current.next
         else:
             self.head = current.next
-            
+
 # Test Cases
+
+
 element1 = Element(1)
 element2 = Element(2)
 element3 = Element(3)
 element4 = Element(4)
 
-#print(element1, element2, element3, element4)
+# print(element1, element2, element3, element4)
 
 linkList = LinkedList(element1)
 linkList.append(element2)
@@ -80,7 +84,6 @@ print(linkList.head.next.value)
 
 linkList.insert(element4, 3)
 print(linkList.getPosition(3).value)
-
 linkList.delete(1)
 print(linkList.getPosition(1).value)
 print(linkList.getPosition(2).value)
